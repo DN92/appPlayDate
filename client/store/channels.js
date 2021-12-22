@@ -31,7 +31,8 @@ const removeChannel = (id) => {
   }
 };
 
-const clearChannels = () => {
+//  no thunk for this action. Used to clear local state only.
+export const clearChannels = () => {
   return {
     type: CLEAR_CHANNELS,
   }
