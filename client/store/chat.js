@@ -2,14 +2,6 @@ import axios from "axios";
 import socket from "../socket";
 import { authenticateRequest } from "./gateKeepingMiddleWare";
 
-const TOKEN = "token";
-export const token = window.localStorage.getItem(TOKEN);
-export const tokenHeader = {
-  headers: {
-    authorization: token,
-  },
-};
-
 const GET_MESSAGES = "GET_MESSAGES";
 const GET_CHANNELS = "GET_CHANNELS";
 const GET_OWNED_CHANNELS = "GET_OWNED_CHANNELS";
@@ -33,12 +25,7 @@ export const getMessages = (messages) => {
     messages,
   };
 };
-export const gotMessage = (newMessage) => {
-  return {
-    type: GOT_MESSAGE,
-    newMessage,
-  };
-};
+
 export const _getChannels = (channels) => {
   return {
     type: GET_CHANNELS,
@@ -147,8 +134,6 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case GET_MESSAGES:
       return { ...state, messages: action.messages };
-    case GOT_MESSAGE:
-      return { ...state, messages: [...state.messages, action.newMessage] };
     case ADD_CHANNEL:
       return { ...state, channels: [...state.channels, action.newChannel] };
     case REMOVE_CHANNEL:
