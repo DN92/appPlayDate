@@ -11,7 +11,7 @@ import SinglePerson from "./singlePerson";
 import { fetchMyFriends } from "../store/users";
 
 import { OpenStreetMapProvider } from "leaflet-geosearch";
-import { addChannel, getChannels } from "../store/chat";
+import { createChannel, getChannels } from "../store/channels";
 
 // learn constant hook for this later
 let provider;
@@ -209,7 +209,7 @@ const mapDispatchToProps = (dispatch, { history }) => {
     updateEvent: (id, body) => dispatch(updateSingleEvent(id, body)),
     getFriends: () => dispatch(fetchMyFriends()),
     addFriend: (eventId, targetId) => dispatch(addUserToEvent(eventId, targetId)),
-    createChat: (channelName) => dispatch(addChannel(channelName, history)),
+    createChat: (channelName) => dispatch(createChannel(channelName, history)),
     getChannels: () => dispatch(getChannels()),
   };
 };

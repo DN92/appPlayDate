@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { getChannels, _setChannel, removeChannel } from '../../store/chat';
+import { getChannels, _setChannel, removeChannel } from '../../store/channels';
 import { NavLink } from 'react-router-dom';
 import { Socket } from 'socket.io-client';
 import socket from '../../socket';
@@ -42,7 +42,7 @@ const Channel = (props) => {
               {channel.name.split('_').join(' ')}
             </NavLink>
           </div>
-        ))} 
+        ))}
       <button className="dbuttons">
         <NavLink to='/channels/create'>+ Channel</NavLink>
       </button>

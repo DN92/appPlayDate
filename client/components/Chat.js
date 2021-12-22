@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { Route } from "react-router-dom";
-import { fetchMessages } from "../store/chat";
+import { fetchMessages } from "../store/messages";
 import Channel from "./chat_components/Channel";
 import Messages from "./chat_components/Messages";
 

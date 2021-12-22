@@ -33,6 +33,20 @@ export const fetchMessages = () => async (dispatch) => {
   }
 };
 
+//  used to send a new message. Itegrate with socket.io via EMIT
+export const sendMessage = (message) => async (dispatch) => {
+  try {
+    const newMessage = await authenticateRequest(
+      `post`,
+      `/api/messages`,
+      message
+    );
+    socket.emit("new-message", { newMessage, channel: newMessage.channelId });
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 
 //  I.State;
 

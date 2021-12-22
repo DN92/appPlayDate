@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { addChannel } from "../../store/chat";
+import { createChannel } from "../../store/channels";
 
 export const CreateChannel = (props) => {
   const [channelInfo, setChannelInfo] = useState({
@@ -48,7 +48,7 @@ export const CreateChannel = (props) => {
 
 const mapDispatchToProps = (dispatch, { history }) => {
   return {
-    createChannel: (body) => dispatch(addChannel(body, history)),
+    createChannel: (body) => dispatch(createChannel(body, history)),
   };
 };
 

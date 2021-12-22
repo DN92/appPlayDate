@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { fetchMessages } from '../../store/chat';
+import { fetchMessages } from '../../store/messages';
 import Message from './Message';
 import NewMessage from './NewMessage';
 import ScrollToBottom from 'react-scroll-to-bottom';
