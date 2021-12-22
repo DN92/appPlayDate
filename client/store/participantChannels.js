@@ -2,6 +2,12 @@ import axios from "axios";
 import socket from "../socket";
 import { authenticateRequest } from "./gateKeepingMiddleWare";
 
+//  Action Declarations
+//  Action Creators
+
+//  Thunks / async calls
+
+//  I.State;
 
 const initialState = []
 

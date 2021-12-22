@@ -29,7 +29,7 @@ export const fetchMessages = () => async (dispatch) => {
     //  send action object to the reduced reducer;
     dispatch(getMessages(data));
   } catch (err) {
-    throw (err);
+    console.log(err);
   }
 };
 
