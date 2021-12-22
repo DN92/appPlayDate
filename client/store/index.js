@@ -4,7 +4,10 @@ import thunkMiddleware from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import auth from './auth';
 import users from './users';
-import chat from './chat';
+import messages from './messages'
+import channels from './channels'
+import ownedChannels from './ownedChannels'
+import participantChannels from './participantChannels'
 import events from './events';
 import places from './places';
 import selectedPlace from './selectedPlace';
@@ -12,7 +15,10 @@ import selectedPlace from './selectedPlace';
 const reducer = combineReducers({
   auth,
   users,
-  chat,
+  messages,
+  channels,
+  ownedChannels,
+  participantChannels,
   events,
   places,
   selectedPlace
