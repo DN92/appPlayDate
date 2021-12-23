@@ -18,7 +18,7 @@ const setParticipantIn = (events) => {
 //  no thunk for this action. Used to clear local state only.
 export const clearParticipantIn = () => {
   return {
-    type: CLEAR_PARTICIPANT_IN;
+    type: CLEAR_PARTICIPANT_IN,
   }
 }
 
