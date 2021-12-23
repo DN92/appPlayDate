@@ -1,6 +1,6 @@
 import io from 'socket.io-client';
 import chat from './store';
-import { gotMessage } from './store/chat';
+import { gotMessage } from './store/messages';
 
 const socket = io(`/chat/channels/`);
 

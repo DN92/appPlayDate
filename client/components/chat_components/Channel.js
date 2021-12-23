@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { getChannels, _setChannel, removeChannel } from '../../store/channels';
+import { getChannels, _setChannel, deleteChannel } from '../../store/channels';
 import { NavLink } from 'react-router-dom';
 import { Socket } from 'socket.io-client';
 import socket from '../../socket';
@@ -48,7 +48,7 @@ const Channel = (props) => {
       </button>
       <button className="dbuttons"
         onClick={() => {
-          props.removeChannel(selectedChannel, history);
+          props.deleteChannel(selectedChannel, history);
         }}
       >
      <a>Remove</a>
@@ -65,7 +65,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   getChannels: () => dispatch(getChannels()),
-  removeChannel: (id, history) => dispatch(removeChannel(id, history)),
+  deleteChannel: (id, history) => dispatch(deleteChannel(id, history)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Channel);

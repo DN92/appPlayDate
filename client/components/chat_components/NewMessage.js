@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { sendMessage } from '../../store/chat';
+import { sendMessage } from '../../store/messages';
 
 function NewMessage(props) {
   const [message, setMessage] = useState({

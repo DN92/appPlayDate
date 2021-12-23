@@ -5,6 +5,7 @@ import { authenticateRequest } from "./gateKeepingMiddleWare";
 //  Action Declarations
 
 const GET_MESSAGES = "GET_MESSAGES";
+const GOT_MESSAGE = "GOT_MESSAGE"
 const CLEAR_MESSAGES = "CLEAR_MESSAGES"
 //  Action Creators
 
@@ -15,6 +16,15 @@ const getMessages = (messages) => {
   };
 };
 
+//  used by socket.io integration
+export const gotMessage = (newMessage) => {
+  return {
+    type: GOT_MESSAGE,
+    newMessage,
+  };
+};
+
+//  no thunk for this action. Used to clear local state only.
 export const clearMessages = () => {
   return {
     type: CLEAR_MESSAGES,
@@ -33,7 +43,7 @@ export const fetchMessages = () => async (dispatch) => {
   }
 };
 
-//  used to send a new message. Itegrate with socket.io via EMIT
+//  used to send a new message. Integrate with socket.io via EMIT
 export const sendMessage = (message) => async (dispatch) => {
   try {
     const newMessage = await authenticateRequest(
@@ -58,6 +68,8 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case GET_MESSAGES:
       return action.messages
+    case GOT_MESSAGE:
+      return [...state.messages, action.newMessage];
     case CLEAR_MESSAGES:
       return initialState
     default:

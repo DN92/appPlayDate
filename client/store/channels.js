@@ -67,7 +67,7 @@ export const createChannel = (channel, history) => async (dispatch) => {
 
 //  allow user to delete a chat channel they made/ or an admin upon
 //    feature implementation.
-export const removeChannel = (id, history) => async (dispatch) => {
+export const deleteChannel = (id, history) => async (dispatch) => {
   try {
     await authenticateRequest("delete", `/api/channels/${id}`);
     dispatch(removeChannel(id));
